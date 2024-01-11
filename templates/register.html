@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <title>Anonymous - register</title>
+
+    <style>
+        #content{
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-top: 70px;
+        }
+
+        #welcome h1{
+            margin-bottom: 2rem; 
+            font-weight: bold; 
+            font-family: 'Trebuchet MS', Helvetica, sans-serif;
+        }
+
+        #welcome p{
+            color: rgb(123, 123, 123); 
+            line-height: 25px; 
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        #form .alert{
+            padding: 15px 30px 15px 20px;
+        }
+
+        form{
+            border: 1px solid rgb(156, 153, 153);
+            border-radius: 5px;
+            padding: 20px 20px 30px;
+            margin-top: 20px;
+            margin-bottom: 70px;
+        }
+
+        form button:hover{
+            color: #fff !important;
+            background-color: #252222;
+        }
+
+        form p{
+            margin-top: 50px; 
+            text-align: center; 
+            font-size: 17px;
+        }
+
+        p a{
+            color: rgb(112, 138, 204);
+        }
+
+        p a:hover{
+            color: #000;
+        }
+
+
+        @media screen and ((max-width: 768px) and (min-width: 601px)){
+            #content{
+                flex-direction: column;
+            }
+        }
+
+
+        @media(max-width: 600px){
+            #content{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row" id="content">
+
+        <div class="col-md-5   col-sm-5   col-xs-7" id="welcome">
+            <h1>Welcome to Michael Anonymous</h1>
+            <p>
+                Welcome to our anonymous haven, where your thoughts find a voice without a face. Join the 
+                conversation without the burden of identity and share your stories, confessions and musings freely.
+            </p>
+        </div>
+
+
+        <div class="col-lg-offset-1 col-lg-3   col-md-4   col-sm-4    col-xs-7" id="form">
+
+            {% for message in messages %}
+                {% if message.tags != "success" %}
+    
+                    <div class="alert alert-danger alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}
+                    </div>
+                {% else %}
+    
+                    <div class="alert alert-{{message.tags}} alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <form action="{% url 'register' %}" method="POST">
+                <br>
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <input type="text" name="username" id="" class="form-control input-lg" placeholder="Username" required>
+                </div>
+        
+                <div class="form-group">
+                    <input type="email" name="email" id="" class="form-control input-lg" placeholder="Enter Email" required>
+                </div>
+        
+                <div class="form-group">
+                    <input type="password" name="password" id="" class="form-control input-lg" placeholder="Enter Password" required>
+                </div>
+        
+                <div class="form-group">
+                    <input type="password" name="confirm_password" id="" class="form-control input-lg" placeholder="Confirm Password" required>
+                </div>
+        
+                <button type="submit" class="btn btn-secondary btn-lg btn-block">Sign Up</button>
+
+                <p>You already have an account?<a href="{% url 'login' %}"> Sign In</a></p>
+            </form>
+        </div>
+    </div>
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>   
+</body>
+</html>
