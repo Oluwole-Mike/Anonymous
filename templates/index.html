@@ -115,15 +115,13 @@
 
             {% if request.user.is_authenticated %}
                 <form action="" style="margin-top: 3rem;">
-                    <div class="col-lg-8   col-md-offset-1 col-md-7   col-xs-8">
+                    <div class="col-lg-12">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="" id="addLink" value="https://anonymous-dhwf.onrender.com/add-anonymous-message/{{request.user.id}}">
+                            <input type="text" style="text-align: center;" class="form-control" name="" id="addLink" value="https://anonymous-dhwf.onrender.com/add-anonymous-message/{{request.user.id}}">
                         </div>
                     </div>
 
-                    <div class="col-xs-1">    
-                        <button type="button" class="btn" style="color: #000; border-radius: 5px; padding: 7px 10px;" onclick="anonymousMessage()">Copy Link</button>
-                    </div>
+                    <button type="button" class="btn" style="color: #000; border-radius: 5px; padding: 7px 10px;" onclick="anonymousMessage()">Copy Link</button>
                 </form>
             {% else %}
 
