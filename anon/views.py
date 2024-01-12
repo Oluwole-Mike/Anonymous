@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from . models import *
+from emailsend import OTGGenerator
 
 # Create your views here.
 
@@ -77,8 +77,9 @@ def Register(request):
                         )
                     user.save()
 
+                    OTGGenerator([email], "SUCCESSFUL REGISTRATION!!!", """We are pleased to notify you that your account registration on Michael Anonymous has been successfully completed. Please sign in to continue your browsing experience on our website""")
                     messages.success(request, 'Account created. Please log in')
-                    return render(request, "login.html", {"user": user}) 
+                    return redirect("login")  
 
             else:
                 messages.error(request, 'Password not the same')
@@ -107,7 +108,9 @@ def Login(request):
                 request.session["userId"] = user.id
                 request.session["username"] = user.username
                 request.session["email"] = user.email
+                email = request.session["email"]
 
+                OTGGenerator([email], "SUCCESSFUL LOGIN!!!", """We are pleased to notify you that you have successfully logged into your account on Michael Anonymous""")
                 return redirect("home")
             
             else:

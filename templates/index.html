@@ -114,9 +114,11 @@
             </p>
 
             {% if request.user.is_authenticated %}
-                <form action="" style="margin-top: 3rem;" class="row">
+                <form action="" style="margin-top: 3rem;">
                     <div class="col-lg-8   col-md-offset-1 col-md-7   col-xs-8">
-                        <input type="text" class="form-control" name="" id="addLink" value="https://anonymous-dhwf.onrender.com/add-anonymous-message/{{request.user.id}}">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="addLink" value="https://anonymous-dhwf.onrender.com/add-anonymous-message/{{request.user.id}}">
+                        </div>
                     </div>
 
                     <div class="col-xs-1">    
@@ -133,11 +135,6 @@
         </div>
     </div>
 
-
-    <!-- <div class="alert alert-info fade out" id="bsalert">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Info!</strong> This alert box could indicate a neutral informative or action
-    </div> -->
 
 
 
@@ -156,17 +153,6 @@
 
             alert("Copied the link: " + copyLink.value); 
         }
-
-
-
-
-        // function toggleAlert(){
-        //     $(".alert").toggleClass('in out'); 
-        //     return false; // Keep close.bs.alert event from removing from DOM
-        // }
-
-        // $("#btn").on("click", toggleAlert);
-        // $('#bsalert').on('close.bs.alert', toggleAlert)
     </script>
 </body>
 </html>
