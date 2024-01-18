@@ -110,7 +110,7 @@ def Login(request):
                 request.session["email"] = user.email
                 email = request.session["email"]
 
-                OTGGenerator([email], "SUCCESSFUL LOGIN!!!", """We are pleased to notify you that you have successfully logged into your account on Michael Anonymous""")
+                OTGGenerator([email], "SUCCESSFUL LOGIN!!!", """We are pleased to notify you that you have successfully \n logged into your account on Michael Anonymous""")
                 return redirect("home")
             
             else:
