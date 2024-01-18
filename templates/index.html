@@ -18,7 +18,7 @@
 
         .navbar{
             border: none;
-            padding: 20px 0px 20px 90px;
+            padding: 20px 70px 20px 90px;
         }
 
         .navbar-default{
@@ -39,24 +39,38 @@
             color: #000;
         }
 
+        #footer{
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+
 
         @media screen and ((max-width: 992px) and (min-width: 769px)){
             .navbar{
-                padding: 20px 0px 20px 50px;
+                padding: 20px 40px 20px 50px;
             }
         }
 
 
         @media screen and ((max-width: 768px) and (min-width: 601px)){
             .navbar{
-                padding: 20px 0px 20px 40px;
+                padding: 20px 30px 20px 40px;
+            }
+
+            #footer{
+                flex-direction: column;
             }
         }
 
 
         @media(max-width: 600px){
             .navbar{
-                padding: 20px 0px 20px 10px;
+                padding: 20px 10px 20px 10px;
+            }
+
+            #footer{
+                flex-direction: column;
             }
         }
     </style>
@@ -82,10 +96,10 @@
                         {% if user.is_authenticated %}
                             <li><a href="{% url 'all-anonymous-message' %}" style="color: black;">View messages</a></li>
                             <li><a style="text-transform: capitalize; color: black;"><span class="glyphicon glyphicon-user"></span> {{user.username}}</a></li>
-                            <li><a href="{% url 'logout' %}" style="color: black; margin-right: 50px;">Logout</a></li>
+                            <li><a href="{% url 'logout' %}" style="color: black;">Logout</a></li>
                         {% else %}
                             <li><a href="{% url 'login' %}" style="color: black; text-decoration: none; font-size: 17px;">Log in</a></li>
-                            <a href="{% url 'register' %}" class="btn" style="padding: 8px 20px; margin: 5px 40px; color: white; background-color: black; border-radius: 20px; font-size: 15px;">Sign up</a></li>
+                            <a href="{% url 'register' %}" class="btn" style="padding: 8px 20px; margin: 5px 20px; color: white; background-color: black; border-radius: 20px; font-size: 15px;">Sign up</a></li>
                         {% endif %}
                     </ul> 
                 </div>
@@ -132,6 +146,22 @@
             {% endif %}
         </div>
     </div>
+
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <hr style="color: #000;">
+        <div id="footer">
+            <div>
+                <p>&copy; 2024 Anonymous. All rights reserved</p>
+            </div>
+            <div>
+                <p>Designed & Developed by <a href="https://www.linkedin.com/in/michael-oluwole">Michael Oluwole</a></p> 
+            </div>
+        </div>
+    </nav>
+
 
 
 
