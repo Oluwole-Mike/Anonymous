@@ -43,6 +43,7 @@
             align-items: center; 
             justify-content: center; 
             margin-top: 130px;
+            margin-bottom: 15rem;
         }
 
         #welcome h1{
@@ -97,7 +98,7 @@
                 padding: 20px 30px 20px 40px;
             }
 
-            #footer{
+            #footer, #content{
                 flex-direction: column;
             }
         }
@@ -108,7 +109,7 @@
                 padding: 20px 10px 20px 10px;
             }
 
-            #footer{
+            #footer, #content{
                 flex-direction: column;
             }
         }
@@ -149,9 +150,9 @@
 
 
 
-    <div class="container">
-        <div class="row" id="content">
-            <div class="col-md-5   col-sm-5   col-xs-10" id="welcome">
+    <div class="">
+        <div class="row" id="content" >
+            <div class="col-md-5   col-sm-5   col-xs-8" id="welcome">
                 <h1>Send your Secret Message</h1>
                 <p>
                     Enjoy this journey of anonymous expression with Michael Anonymous. 
@@ -162,7 +163,7 @@
                 </p>
             </div>
 
-            <div class="col-md-6   col-sm-7   col-xs-10" id="add">     
+            <div class="col-lg-offset-1 col-lg-4   col-md-5   col-sm-5    col-xs-9" id="add">     
                 <div class="panel panel-default">                
                     <div class="panel-body" >
                         <h4 style="font-weight: bold; font-family: Geneva, Verdana, sans-serif;">Drop a Secret Message for <span style="text-transform: capitalize;">{{get_user.username}}</span></h4>
@@ -185,7 +186,7 @@
 
 
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-default navbar-fixed-bottom"  style="padding-top: 5px;">
         <hr style="color: #000;">
         <div id="footer">
             <div>
