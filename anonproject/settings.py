@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'anonproject.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://anonymous_qdp9_user:wZjtAYlXcsjSONK53FrY7xOaBDfw3K3C@dpg-cmfo6e6n7f5s73c7iq20-a.oregon-postgres.render.com/anonymous_qdp9')
+    'default': dj_database_url.parse('postgres://anonymous_m4y7_user:IKaVmS9wcMlRPpZSnxsJXCTFwAmYTSOG@dpg-col5pnud3nmc739qqpig-a.oregon-postgres.render.com/anonymous_m4y7')
 }
 
 
