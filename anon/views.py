@@ -47,7 +47,7 @@ def AddAnonymousMessage(request, id):
 
 def AllAnonymousMessage(request):
     try:
-        all_anonymous_message = AnonymousMessage.objects.filter(user_id = request.user) #.order_by('-date_created').values()
+        all_anonymous_message = AnonymousMessage.objects.filter(user_id = request.user).order_by('-date_created').values()
         return render(request, "all_message.html", {"all_anonymous_messages": all_anonymous_message})
 
     except Exception as ex:
